@@ -27,7 +27,6 @@ class FetchSeatMapUseCaseTest {
 
     private lateinit var fetchSeatMapUseCase: FetchSeatMapUseCase
     private lateinit var fakeCinemaRepository: FakeCinemaRepository
-
     private lateinit var dispatcher: TestDispatcher
 
     @Before
@@ -43,7 +42,8 @@ class FetchSeatMapUseCaseTest {
 
     @Test
     fun `test SeatMapResponse for success`() = runTest {
-        Truth.assertThat(fetchSeatMapUseCase.invoke()).isEqualTo(Resource.Success(fakeSeatMapResponse))
+        Truth.assertThat(fetchSeatMapUseCase.invoke())
+            .isEqualTo(Resource.Success(fakeSeatMapResponse))
         Truth.assertThat(fetchSeatMapUseCase.invoke()).isNotInstanceOf(Resource.Error::class.java)
     }
 
@@ -51,7 +51,8 @@ class FetchSeatMapUseCaseTest {
     fun `test SeatMapResponse for error`() = runTest {
         fakeCinemaRepository.prepareForError()
         Truth.assertThat(fetchSeatMapUseCase.invoke()).isNotInstanceOf(Resource.Success::class.java)
-        Truth.assertThat(fetchSeatMapUseCase.invoke()).isNotEqualTo(Resource.Success(fakeSeatMapResponse))
+        Truth.assertThat(fetchSeatMapUseCase.invoke())
+            .isNotEqualTo(Resource.Success(fakeSeatMapResponse))
         Truth.assertThat(fetchSeatMapUseCase.invoke()).isInstanceOf(Resource.Error::class.java)
         fakeCinemaRepository.resetCase()
     }
