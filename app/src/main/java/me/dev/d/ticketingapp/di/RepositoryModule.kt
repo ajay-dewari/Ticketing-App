@@ -16,7 +16,7 @@ abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindWeatherRepository(
-        weatherRepositoryImpl: CinemaRepositoryImpl
+    abstract fun bindCinemaRepository(
+        cinemaRepositoryImpl: CinemaRepositoryImpl
     ): CinemaRepository
 }

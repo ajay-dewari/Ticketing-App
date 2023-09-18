@@ -10,7 +10,7 @@ class UpdateSelectedSeatsUseCase @Inject constructor() {
         mutableSeatMap?.let {
             for ((seatMapIndex, seatRow) in mutableSeatMap.withIndex()) {
                 val mutableSeatRow = seatRow.rowSeats.toMutableList()
-                mutableSeatRow?.let {
+                mutableSeatRow.let {
                     for ((index, seat) in mutableSeatRow.withIndex()) {
                         mutableSeatRow[index] =
                             seat.copy(isSelected = selectedSeats.contains(seat.seatNumber))

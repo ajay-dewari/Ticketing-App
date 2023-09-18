@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Ticketing App</string>
+    <string name="select_seat">Select Seats</string>
+    <string name="edit_btn">Edit Button</string>
+    <string name="location_icon">Location icon</string>
+    <string name="back_btn">Back Button</string>
+    <string name="available">Available</string>
+    <string name="sold">Sold</string>
+    <string name="selected">Selected</string>
+    <string name="confirm">Confirm</string>
 </resources>

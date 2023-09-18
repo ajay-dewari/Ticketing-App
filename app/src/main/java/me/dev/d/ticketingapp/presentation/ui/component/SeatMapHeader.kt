@@ -18,14 +18,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import me.dev.d.ticketingapp.R.string
 import me.dev.d.ticketingapp.presentation.ui.SeatMapEvent
 import me.dev.d.ticketingapp.presentation.ui.SeatMapUIState
 
 @Composable
-fun SeatMapHeader(navController: NavController, state: SeatMapUIState, eventDispatcher: (SeatMapEvent) -> Unit) {
+fun SeatMapHeader(
+    navController: NavController,
+    state: SeatMapUIState,
+    eventDispatcher: (SeatMapEvent) -> Unit
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -39,18 +45,22 @@ fun SeatMapHeader(navController: NavController, state: SeatMapUIState, eventDisp
         IconButton(onClick = {
             navController.popBackStack()
         }) {
-            Icon(Icons.Default.ArrowBack, contentDescription = "Back Button")
+            Icon(Icons.Default.ArrowBack, contentDescription = stringResource(id = string.back_btn))
         }
         Text(
             modifier = Modifier.width(120.dp),
             text = "The Matrix",
             style = MaterialTheme.typography.titleMedium,
             overflow = TextOverflow.Ellipsis,
-            maxLines = 2)
+            maxLines = 2
+        )
         Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Spacer(modifier = Modifier.weight(1f))
-                Icon(Icons.Default.LocationOn, contentDescription = "Location icon")
+                Icon(
+                    Icons.Default.LocationOn,
+                    contentDescription = stringResource(id = string.location_icon)
+                )
                 Text(text = "PVR Phoenix MarketCity", style = MaterialTheme.typography.labelLarge)
             }
             Row(verticalAlignment = Alignment.CenterVertically) {

@@ -9,7 +9,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import javax.inject.Qualifier
 import javax.inject.Singleton
-import me.dev.d.ticketingapp.common.CinemaDispatchers
 import me.dev.d.ticketingapp.common.ConnectivityObserver
 import me.dev.d.ticketingapp.common.NetworkConnectivityObserver
 

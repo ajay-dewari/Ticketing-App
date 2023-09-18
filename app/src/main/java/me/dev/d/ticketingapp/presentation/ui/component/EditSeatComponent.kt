@@ -28,13 +28,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.text.isDigitsOnly
+import me.dev.d.ticketingapp.R
 import me.dev.d.ticketingapp.presentation.ui.SeatMapEvent
 import me.dev.d.ticketingapp.presentation.ui.SeatMapUIState
 
@@ -60,9 +61,12 @@ fun EditSeat(state: SeatMapUIState, eventDispatcher: (SeatMapEvent) -> Unit) {
         Box {
             if (editActive) {
                 TextField(
-                    modifier = Modifier.padding(
-                        end = 4.dp
-                    ).width(40.dp).background(color = Color.Transparent),
+                    modifier = Modifier
+                        .padding(
+                            end = 4.dp
+                        )
+                        .width(40.dp)
+                        .background(color = Color.Transparent),
                     value = state.requiredSeatText,
                     onValueChange = {
                         if (it.isDigitsOnly() && it.length <= 1) {
@@ -88,7 +92,7 @@ fun EditSeat(state: SeatMapUIState, eventDispatcher: (SeatMapEvent) -> Unit) {
 
         Icon(
             imageVector = if (editActive) Icons.Default.CheckCircle else Icons.Default.Edit,
-            contentDescription = "Edit icon",
+            contentDescription = stringResource(id = R.string.edit_btn),
             modifier = Modifier
                 .clickable {
                     editActive = editActive.not()

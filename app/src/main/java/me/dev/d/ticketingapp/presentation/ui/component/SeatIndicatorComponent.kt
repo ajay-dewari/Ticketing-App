@@ -9,7 +9,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import me.dev.d.ticketingapp.R.string
 
 @Composable
 fun SeatIndicatorComponent() {
@@ -21,21 +23,21 @@ fun SeatIndicatorComponent() {
         SeatComp(isEnabled = false)
         Spacer(modifier = Modifier.width(4.dp))
         Text(
-            "Sold",
+            stringResource(id = string.sold),
             style = MaterialTheme.typography.bodySmall,
         )
         Spacer(modifier = Modifier.width(16.dp))
         SeatComp(isEnabled = true, isSelected = false)
         Spacer(modifier = Modifier.width(4.dp))
         Text(
-            "Available",
+            stringResource(id = string.available),
             style = MaterialTheme.typography.bodySmall,
         )
         Spacer(modifier = Modifier.width(16.dp))
         SeatComp(isEnabled = true, isSelected = true)
         Spacer(modifier = Modifier.width(4.dp))
         Text(
-            "Selected",
+            stringResource(id = string.selected),
             style = MaterialTheme.typography.bodySmall,
         )
     }
